@@ -1,15 +1,22 @@
 import requests
 import json
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 url = "https://api.jigsawstack.com/v1/ai/scrape"
+
+
 headers = {
-    "x-api-key": "",
-    "Content-Type": "application/json"
+    "x-api-key": os.getenv("JS_API_KEY"),
+    "Content-Type": "application/json",
 }
 data = {
     "url": "https://www.dbs.com.sg/personal/insurance/endowment-with-protection/retirement-plans/retiresavvy",
-    "element_prompts": ["flpweb-legacy"]
+    "element_prompts": ["flpweb-legacy"],
 }
+
 
 def get_data():
     response = requests.post(url, headers=headers, data=json.dumps(data))
@@ -25,9 +32,9 @@ def get_data():
 scraped_data = get_data()
 
 # Extract the "text" field
-texts = [result['text'] for result in data['data'][0]['results']]
+texts = [result["text"] for result in scraped_data["data"][0]["results"]]
 
 # Write the "text" fields into a new text file
-with open('output.txt', 'w') as txt_file:
+with open("output.txt", "w") as txt_file:
     for text in texts:
-        txt_file.write(text + '\n')
+        txt_file.write(text + "\n")
