@@ -20,7 +20,7 @@ llm = ChatOpenAI(model="gpt-3.5-turbo-0125")
 
 from langchain_community.document_loaders import TextLoader
 
-loader = TextLoader("./data/data.txt")
+loader = TextLoader("./data/output.txt")
 
 # # Load, chunk and index the contents of the blog.
 # loader = WebBaseLoader(
@@ -57,9 +57,3 @@ rag_chain.invoke("How low can you commit per month?")
 for chunk in rag_chain.stream("How low can you commit per month?"):
     print(chunk, end="", flush=True)
 
-####
-
-# from langchain_community.document_loaders import TextLoader
-
-# loader = TextLoader("./data/data.txt")
-# loader.load()

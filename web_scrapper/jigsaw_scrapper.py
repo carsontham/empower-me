@@ -23,7 +23,6 @@ def get_data():
 
     if response.status_code == 200:
         json_response = response.json()
-        print(json_response)
         return json_response
     else:
         print(f"Request failed with status code {response.status_code}")
@@ -35,6 +34,6 @@ scraped_data = get_data()
 texts = [result["text"] for result in scraped_data["data"][0]["results"]]
 
 # Write the "text" fields into a new text file
-with open("output.txt", "w") as txt_file:
+with open("./data/output.txt", "w") as txt_file:
     for text in texts:
         txt_file.write(text + "\n")

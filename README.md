@@ -1,7 +1,36 @@
-EmpowerMe - retirement financial recommendation
+# EmpowerMe - Financial Retirement Recommendation Engine
 
-pip install --upgrade --quiet langchain langchain-community langchainhub langchain-openai langchain-chroma bs4
-pip install -qU langchain-openai
+EmpowerMe is a recommendation tool designed to help individuals achieve a financially secure retirement. Using the Retrieval Augmented Generation (RAG) technique with LangChain and OpenAI's GPT-3.5-turbo model, EmpowerMe provides personalized retirement plan recommendations based on user profiles and relevant financial data.
 
+## Features
+- Personalized retirement plan recommendations
+- Integration with OpenAI's GPT-3.5-turbo for natural language processing
+- Retrieval Augmented Generation (RAG) using LangChain
+- Secure and user-friendly interface for collecting and processing user data
 
-pip install langgraph (library for building stateful, multi-actor applications with LLMs, built on top of (and intended to be used with) LangChain.)
+## Prerequisites
+
+Ensure you have Python 3.7 or higher installed. You will also need to install the required Python modules.
+
+## Installation
+
+To install all required Python modules, run:
+```
+make install
+```
+Use the JigsawStack API to collect retirement plan data from various financial sites.
+```
+make scrape
+```
+
+Query and Recommendations:
+
+Send a query to the LLM and get personalized retirement plan recommendations.
+```
+make send
+```
+
+References:
+- LangChain
+- OpenAI
+- JigsawStack API
