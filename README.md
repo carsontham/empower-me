@@ -10,20 +10,18 @@ EmpowerMe is a recommendation tool designed to help individuals achieve a financ
 
 ## Prerequisites
 
-Ensure you have Python 3.7 or higher installed. You will also need to install the required Python modules.
-
-## Installation
-
-To install all required Python modules, run:
+You will need to install the required Python modules:
 ```
 make install
 ```
+
+## Web scrapper using JigsawStack API
 Use the JigsawStack API to collect retirement plan data from various financial sites.
 ```
 make scrape
 ```
 
-Query and Recommendations:
+## Query and Recommendation
 
 Send a query to the LLM and get personalized retirement plan recommendations.
 ```
