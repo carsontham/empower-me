@@ -44,6 +44,7 @@ prompt = hub.pull("rlm/rag-prompt")
 def format_docs(docs):
     return "\n\n".join(doc.page_content for doc in docs)
 
+query = input("What's your question?\n")
 
 rag_chain = (
     {"context": retriever | format_docs, "question": RunnablePassthrough()}
@@ -52,8 +53,8 @@ rag_chain = (
     | StrOutputParser()
 )
 
-rag_chain.invoke("How low can you commit per month?")
+rag_chain.invoke(query)
 
-for chunk in rag_chain.stream("How low can you commit per month?"):
+for chunk in rag_chain.stream(query):
     print(chunk, end="", flush=True)
 
